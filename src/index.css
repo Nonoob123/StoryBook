@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer components {
+  /* Rabbit 🐰 (Blue theme) */
+  .dialog-rabbit {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    border-left: 4px solid #2196f3;
+    color: #1565c0;
+    @apply p-4 my-3.5 rounded-r-2xl font-bold shadow-sm transition-all flex items-center gap-2;
+  }
+  .dark .dialog-rabbit {
+    background: linear-gradient(135deg, #1a3a4a, #0d2137);
+    color: #88ccff;
+    border-left-color: #4488cc;
+  }
+  .dialog-rabbit::before {
+    content: "🐰";
+    @apply text-xl filter drop-shadow-sm flex-shrink-0;
+  }
+  
+  /* Squirrel 🐿️ (Orange theme) */
+  .dialog-squirrel {
+    background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+    border-left: 4px solid #ff9800;
+    color: #e65100;
+    @apply p-4 my-3.5 rounded-r-2xl font-bold shadow-sm transition-all flex items-center gap-2;
+  }
+  .dark .dialog-squirrel {
+    background: linear-gradient(135deg, #3d2a1a, #2a1a0a);
+    color: #ffaa88;
+    border-left-color: #cc8844;
+  }
+  .dialog-squirrel::before {
+    content: "🐿️";
+    @apply text-xl filter drop-shadow-sm flex-shrink-0;
+  }
+
+  /* Sheep 🐑 (Green/Grassland theme) */
+  .dialog-sheep {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    border-left: 4px solid #4caf50;
+    color: #2e7d32;
+    @apply p-4 my-3.5 rounded-r-2xl font-bold shadow-sm transition-all flex items-center gap-2;
+  }
+  .dark .dialog-sheep {
+    background: linear-gradient(135deg, #1a3a2a, #0d2117);
+    color: #88ffaa;
+    border-left-color: #44cc88;
+  }
+  .dialog-sheep::before {
+    content: "🐑";
+    @apply text-xl filter drop-shadow-sm flex-shrink-0;
+  }
+
+  /* Camel 🐪 (Yellow/Orange theme) */
+  .dialog-camel {
+    background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+    border-left: 4px solid #ff9800;
+    color: #e65100;
+    @apply p-4 my-3.5 rounded-r-2xl font-bold shadow-sm transition-all flex items-center gap-2;
+  }
+  .dark .dialog-camel {
+    background: linear-gradient(135deg, #3d2a0a, #2a1a00);
+    color: #ffcc88;
+    border-left-color: #cc8844;
+  }
+  .dialog-camel::before {
+    content: "🐪";
+    @apply text-xl filter drop-shadow-sm flex-shrink-0;
+  }
+
+  /* Turtle 🐢 (Green/Grassland theme - matches sheep) */
+  .dialog-turtle {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    border-left: 4px solid #4caf50;
+    color: #2e7d32;
+    @apply p-4 my-3.5 rounded-r-2xl font-bold shadow-sm transition-all flex items-center gap-2;
+  }
+  .dark .dialog-turtle {
+    background: linear-gradient(135deg, #1a3a2a, #0d2117);
+    color: #88ffaa;
+    border-left-color: #44cc88;
+  }
+  .dialog-turtle::before {
+    content: "🐢";
+    @apply text-xl filter drop-shadow-sm flex-shrink-0;
+  }
+
+  /* Bird 🐦 (Sky yellow theme) */
+  .dialog-bird {
+    background: linear-gradient(135deg, #fffde7, #fff9c4);
+    border-left: 4px solid #fbc02d;
+    color: #f57f17;
+    @apply p-4 my-3.5 rounded-r-2xl font-bold shadow-sm transition-all flex items-center gap-2;
+  }
+  .dark .dialog-bird {
+    background: linear-gradient(135deg, #1d3557, #1d3557);
+    color: #ffee88;
+    border-left-color: #ccab44;
+  }
+  .dialog-bird::before {
+    content: "🐦";
+    @apply text-xl filter drop-shadow-sm flex-shrink-0;
+  }
+  
+  .narration {
+    @apply block text-gray-700 dark:text-gray-300 pl-4 border-l-2 border-gray-200 dark:border-slate-700 my-4 leading-relaxed font-normal;
+  }
+}

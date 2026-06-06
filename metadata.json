@@ -1,0 +1,6 @@
+{
+  "name": "通用故事书框架",
+  "description": "提供固定的顶部导航、音量设置、夜间模式控制及底部页面跳转功能的通用故事书阅读框架。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
