@@ -1,8 +1,0 @@
-- generic [active] [ref=e1]:
-  - generic [ref=e3]:
-    - heading "馃寛 娉㈡尝鍜屾湹鏈电殑褰╄櫣绋瓙 馃寛" [level=1] [ref=e4]
-    - paragraph [ref=e5]:
-      - text: 涓€鍊嬮棞鏂艰€愬績銆佸弸瑾煎拰鍦橀殜鍚堜綔鐨勭編濂芥晠浜?/p>
-      - button "闁嬪闁辫畝 猸?/button>" [ref=e6] [cursor=pointer]
-      - button "绻肩簩涓婃闁辫畝" [disabled] [ref=e7]
-  - button "馃寵" [ref=e9]
