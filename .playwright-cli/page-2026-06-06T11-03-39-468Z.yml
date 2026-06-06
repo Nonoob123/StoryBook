@@ -1,0 +1,38 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - generic: 🌟
+    - generic: ⭐
+    - generic: 🌈
+    - generic: 💫
+    - generic: 🌟
+    - generic: ✨
+    - generic: 🌈
+    - generic: ⭐
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - heading "波波和朵朵的故事書" [level=1] [ref=e4]
+      - paragraph [ref=e5]: 📖 選擇一本故事書開始閱讀吧！📖
+    - generic [ref=e6]:
+      - generic [ref=e7] [cursor=pointer]:
+        - generic [ref=e9]: 🌈
+        - generic [ref=e10]:
+          - heading "彩虹種子" [level=2] [ref=e11]
+          - generic [ref=e12]:
+            - generic [ref=e13]: 🌱 耐心
+            - generic [ref=e14]: 🤝 合作
+            - generic [ref=e15]: 💚 友情
+          - paragraph [ref=e16]: 小兔子波波和小松鼠朵朵在森林裡發現了一顆發光的彩虹種子。他們一起種下種子，每天澆水、守護，經歷了暴風雨的考驗，終於種出了美麗的彩虹樹！
+          - paragraph [ref=e17]: 📄 共 19 頁
+          - button "開始閱讀 📖" [ref=e18]
+      - generic [ref=e19] [cursor=pointer]:
+        - generic [ref=e21]: 🐑
+        - generic [ref=e22]:
+          - heading "草原小英雄" [level=2] [ref=e23]
+          - generic [ref=e24]:
+            - generic [ref=e25]: 🦅 夢想
+            - generic [ref=e26]: 💪 堅持
+            - generic [ref=e27]: 🌅 成長
+          - paragraph [ref=e28]: 小羊波波看著天空的老鷹，羨慕地想：「要是我也會飛就好了！」於是，他和好朋友小駱駝朵朵開始了瘋狂的發明飛行器之旅。第一百次實驗，終於成功！
+          - paragraph [ref=e29]: 📄 共 18 頁
+          - button "開始閱讀 📖" [ref=e30]
+    - paragraph [ref=e32]: ✨ 每一個故事都蘊含著美好的寓意 ✨

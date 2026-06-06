@@ -1,0 +1,116 @@
+[
+  {
+    "num": 1,
+    "description": "Forest friends meeting",
+    "prompt": "A cheerful fluffy white rabbit named Bobo and an adorable cute squirrel named Duoduo sitting together in a beautiful green forest with tall trees wildflowers and a small stream, children picture book illustration, soft watercolor style, warm gentle colors, cute anthropomorphic animals with big friendly smiles, cozy and peaceful atmosphere, 2D flat illustration",
+    "filename": "scene01_forest_friends.png"
+  },
+  {
+    "num": 2,
+    "description": "Discovering the glowing seed",
+    "prompt": "A cute white rabbit looking excited while holding a small glowing magical seed in his paws, the seed sparkling with rainbow light, surrounded by green grass and wildflowers, children picture book illustration, soft watercolor style, warm gentle colors, magical sparkle effects, cozy forest scene",
+    "filename": "scene02_discovering_seed.png"
+  },
+  {
+    "num": 3,
+    "description": "The rainbow seed legend",
+    "prompt": "A cheerful white rabbit excitedly talking to a cute squirrel, the rabbit gesturing with paws, sparkling rainbow seed glowing between them, the squirrel looking amazed and curious with wide eyes, children picture book illustration, soft watercolor style, warm gentle colors, happy expressions",
+    "filename": "scene03_rainbow_seed_legend.png"
+  },
+  {
+    "num": 4,
+    "description": "Planting the seed together",
+    "prompt": "A cute white rabbit and a cute squirrel working together to plant a magical glowing seed in the center of a forest, the rabbit digging a small hole while the squirrel holds the seed, surrounded by trees and flowers, children picture book illustration, soft watercolor style, warm gentle colors, cooperation and teamwork",
+    "filename": "scene04_planting_seed.png"
+  },
+  {
+    "num": 5,
+    "description": "Checking early in the morning",
+    "prompt": "A cute white rabbit running early in the morning to check on a small mound of soil where he planted a seed, morning sun rays through the trees, dew drops on grass, the rabbit looking impatient and curious, children picture book illustration, soft watercolor style, warm golden morning light",
+    "filename": "scene05_early_check.png"
+  },
+  {
+    "num": 6,
+    "description": "Impatient waiting",
+    "prompt": "A cute white rabbit sitting sadly next to a small mound of soil, looking up at the sky impatiently, the rabbit with a disappointed expression, a cute squirrel trying to comfort him, children picture book illustration, soft watercolor style, warm gentle colors, emotional scene",
+    "filename": "scene06_impatient_wait.png"
+  },
+  {
+    "num": 7,
+    "description": "Grandpa Turtle arrives",
+    "prompt": "A wise old turtle with a gentle kind face slowly walking towards a white rabbit and a squirrel near a patch of soil, the turtle smiling warmly, the rabbit and squirrel looking at him curiously, children picture book illustration, soft watercolor style, warm gentle colors, peaceful forest background",
+    "filename": "scene07_grandpa_turtle.png"
+  },
+  {
+    "num": 8,
+    "description": "Patience lesson",
+    "prompt": "A wise old turtle gently teaching a white rabbit and a squirrel about patience, the turtle with a kind smile, a small sun and rain cloud shown in the sky above, magical sparkles around the seed, children picture book illustration, soft watercolor style, warm gentle colors, heartwarming teaching moment",
+    "filename": "scene08_patience_lesson.png"
+  },
+  {
+    "num": 9,
+    "description": "Daily care routine",
+    "prompt": "A cute white rabbit watering a patch of soil with a small red watering can while a cute squirrel gently loosening the soil with a small garden tool, the two animals working together happily, children picture book illustration, soft watercolor style, warm gentle colors, teamwork and caring",
+    "filename": "scene09_caring_daily.png"
+  },
+  {
+    "num": 10,
+    "description": "The big wind storm",
+    "prompt": "A dark stormy night in the forest, strong wind blowing through trees, leaves flying everywhere, a small patch of soil where seeds were planted, the soil almost being blown away, a white rabbit and squirrel looking worried and afraid hugging each other, children picture book illustration, soft watercolor style, dramatic lighting with dark blues and grays",
+    "filename": "scene10_big_wind.png"
+  },
+  {
+    "num": 11,
+    "description": "Leaves protection",
+    "prompt": "A cute squirrel carefully placing large leaves over a patch of soil to protect it from wind, the squirrel looking determined and smart, fallen leaves around, a white rabbit watching with admiration, children picture book illustration, soft watercolor style, warm gentle colors, clever solution scene",
+    "filename": "scene11_leaves_protection.png"
+  },
+  {
+    "num": 12,
+    "description": "Carrying water under the sun",
+    "prompt": "A cute white rabbit carrying a heavy water bucket, running back and forth under a bright hot sun, sweat drops on the rabbit, the ground looking dry and cracked, a cute squirrel watching from a rock looking tired but supportive, children picture book illustration, soft watercolor style, warm golden yellow light",
+    "filename": "scene12_carrying_water.png"
+  },
+  {
+    "num": 13,
+    "description": "The sprout emerges!",
+    "prompt": "A tiny bright green sprout emerging from the soil, the white rabbit and squirrel jumping for joy in the background with excited happy expressions, sparkles of magical light around the sprout, flowers blooming, children picture book illustration, soft watercolor style, warm gentle colors, joyful breakthrough moment",
+    "filename": "scene13_sprout_emerges.png"
+  },
+  {
+    "num": 14,
+    "description": "The tree grows bigger",
+    "prompt": "A small green sapling growing taller, the white rabbit and squirrel watering it and caring for it, time passing shown by changing sun and moon in the sky, the tree growing bigger with each passing day, children picture book illustration, soft watercolor style, warm gentle colors, growth and passage of time",
+    "filename": "scene14_tree_growing.png"
+  },
+  {
+    "num": 15,
+    "description": "Rainbow fruits appear",
+    "prompt": "A magnificent tall tree with brilliant rainbow colored fruits hanging from its branches, red orange yellow green blue indigo purple fruits glowing brightly, the white rabbit and squirrel standing at the base of the tree looking up in amazement and joy, magical sparkles and light rays, children picture book illustration, soft watercolor style, vibrant rainbow colors, magical and beautiful",
+    "filename": "scene15_rainbow_fruits.png"
+  },
+  {
+    "num": 16,
+    "description": "Forest animals visit",
+    "prompt": "A little monkey a deer and a hedgehog gathering around a beautiful rainbow tree admiring the colorful fruits, the monkey pointing excitedly the deer looking amazed the hedgehog clapping, the white rabbit and squirrel standing proudly together, children picture book illustration, soft watercolor style, warm gentle colors, happy forest gathering",
+    "filename": "scene16_visitors_arrive.png"
+  },
+  {
+    "num": 17,
+    "description": "Arguing about credit",
+    "prompt": "A white rabbit standing tall puffing his chest proudly next to a cute squirrel with arms crossed looking a bit annoyed, the two having a friendly disagreement, a small magical seed glowing between them, children picture book illustration, soft watercolor style, warm gentle colors, cute character expressions showing personality",
+    "filename": "scene17_arguing_credit.png"
+  },
+  {
+    "num": 18,
+    "description": "The wisdom of teamwork",
+    "prompt": "A wise old turtle speaking kindly to a white rabbit and a squirrel under the beautiful rainbow tree, the turtle with a gentle smile explaining something important, the rabbit and squirrel listening and realizing something, magical rainbow light shining on all three, children picture book illustration, soft watercolor style, warm gentle colors, heartwarming moment",
+    "filename": "scene18_turtle_wisdom.png"
+  },
+  {
+    "num": 19,
+    "description": "Together they created the rainbow tree",
+    "prompt": "A white rabbit and a cute squirrel standing happily together under a magnificent rainbow fruit tree, both smiling and holding paws, all the forest animals gathered around celebrating together, the sun shining brightly creating a beautiful rainbow in the sky, children picture book illustration, soft watercolor style, warm golden colors, joyful and heartwarming ending scene",
+    "filename": "scene19_together_rainbow.png"
+  }
+]

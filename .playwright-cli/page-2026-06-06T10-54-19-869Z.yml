@@ -1,0 +1,14 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e11]:
+    - generic [ref=e12] [cursor=pointer]:
+      - generic [ref=e13]: 第 1 頁
+      - img "第 1 張圖片" [ref=e14]
+    - generic [ref=e16]:
+      - paragraph [ref=e17]: 在一片遼闊美麗的大草原上住著一隻小羊波波和一隻小駱駝朵朵。
+      - paragraph [ref=e18]: 波波是一隻可愛的小羊，朵朵是一隻溫柔的小駱駝，他們是彼此最好的朋友。
+    - generic [ref=e19]:
+      - button "🏠 首頁" [ref=e20] [cursor=pointer]
+      - button "上一頁" [disabled] [ref=e21]
+      - generic [ref=e24]: 1/18
+      - button "下一頁" [ref=e25] [cursor=pointer]
+  - button "🌙" [ref=e9]

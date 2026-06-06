@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>波波和朵朵的故事書</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📚%3C/text%3E%3C/svg%3E">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans TC',sans-serif;min-height:100vh;overflow-x:hidden;
+  background:linear-gradient(135deg,#fce4ec 0%,#f3e5f5 25%,#e8eaf6 50%,#e0f7fa 75%,#fff9c4 100%);
+  background-size:400% 400%;animation:gradientShift 15s ease infinite}
+@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+.container{max-width:900px;margin:0 auto;padding:30px 20px}
+
+.header{text-align:center;padding:40px 20px 30px}
+.header h1{font-family:'Noto Serif TC',serif;font-size:2.8em;
+  background:linear-gradient(90deg,#f44336,#ff9800,#ffeb3b,#4caf50,#2196f3,#3f51b5,#9c27b0);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  text-shadow:none;margin-bottom:10px;animation:titlePulse 3s ease-in-out infinite}
+@keyframes titlePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.02)}}
+.header p{font-size:1.2em;color:#6d4c41;margin-top:5px}
+
+.book-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:30px;margin-top:30px}
+
+.book-card{background:white;border-radius:25px;overflow:hidden;cursor:pointer;
+  box-shadow:0 8px 30px rgba(0,0,0,0.12);transition:all 0.4s ease;position:relative}
+.book-card:hover{transform:translateY(-8px) scale(1.02);
+  box-shadow:0 15px 50px rgba(0,0,0,0.2)}
+.book-card::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  border-radius:25px;border:3px solid transparent;transition:border-color 0.3s ease}
+.book-card:hover::before{border-color:#ff9800}
+
+.book-cover{height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.book-cover::after{content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.3),transparent 60%)}
+
+.book1-cover{background:linear-gradient(135deg,#fff9c4,#ffecb3,#ffe0b2,#ffcc80)}
+.book2-cover{background:linear-gradient(135deg,#e8f5e9,#c8e6c9,#a5d6a7,#81c784)}
+
+.book-cover .cover-icon{font-size:5em;position:relative;z-index:1;filter:drop-shadow(2px 4px 6px rgba(0,0,0,0.2))}
+
+.book-info{padding:25px}
+.book-info h2{font-family:'Noto Serif TC',serif;font-size:1.6em;color:#333;margin-bottom:10px}
+.book-info .book-tag{display:inline-block;padding:4px 12px;border-radius:15px;font-size:0.8em;
+  margin-right:8px;margin-bottom:8px;font-weight:700}
+.tag-rainbow{background:linear-gradient(90deg,#fce4ec,#f3e5f5);color:#7b1fa2}
+.tag-grassland{background:linear-gradient(90deg,#e8f5e9,#c8e6c9);color:#2e7d32}
+
+.book-info .book-desc{color:#666;font-size:0.95em;line-height:1.6;margin:12px 0}
+.book-info .pages-count{color:#999;font-size:0.85em;margin-top:8px}
+
+.book-info .read-btn{display:inline-block;margin-top:15px;padding:10px 30px;
+  background:linear-gradient(135deg,#667eea,#764ba2);color:white;border:none;border-radius:25px;
+  font-size:1em;font-family:'Noto Sans TC',sans-serif;cursor:pointer;transition:all 0.3s ease}
+.book-info .read-btn:hover{transform:scale(1.05);box-shadow:0 4px 15px rgba(102,126,234,0.4)}
+
+.book2-cover .read-btn{background:linear-gradient(135deg,#ff6f00,#ff8f00)}
+.book2-cover .read-btn:hover{box-shadow:0 4px 15px rgba(255,111,0,0.4)}
+
+/* Floating decorations */
+.floaters{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+.floater{position:absolute;opacity:0.15;animation:floatUp linear infinite}
+@keyframes floatUp{0%{transform:translateY(100vh) rotate(0deg)}100%{transform:translateY(-100px) rotate(360deg)}}
+
+.footer{text-align:center;padding:40px 20px;color:#999;font-size:0.85em}
+
+@media(max-width:768px){
+  .header h1{font-size:2em}
+  .book-grid{grid-template-columns:1fr;gap:20px}
+  .book-cover{height:180px}
+  .book-cover .cover-icon{font-size:3.5em}
+}
+</style>
+</head>
+<body>
+
+<div class="floaters">
+  <div class="floater" style="left:5%;font-size:2em;animation-duration:20s;animation-delay:0s">🌟</div>
+  <div class="floater" style="left:15%;font-size:1.5em;animation-duration:25s;animation-delay:3s">⭐</div>
+  <div class="floater" style="left:30%;font-size:2.5em;animation-duration:18s;animation-delay:1s">🌈</div>
+  <div class="floater" style="left:50%;font-size:1.8em;animation-duration:22s;animation-delay:5s">💫</div>
+  <div class="floater" style="left:70%;font-size:2em;animation-duration:20s;animation-delay:2s">🌟</div>
+  <div class="floater" style="left:85%;font-size:1.5em;animation-duration:28s;animation-delay:4s">✨</div>
+  <div class="floater" style="left:92%;font-size:2.2em;animation-duration:16s;animation-delay:6s">🌈</div>
+  <div class="floater" style="left:40%;font-size:1.3em;animation-duration:24s;animation-delay:7s">⭐</div>
+</div>
+
+<div class="container">
+  <div class="header">
+    <h1>波波和朵朵的故事書</h1>
+    <p>📖 選擇一本故事書開始閱讀吧！📖</p>
+  </div>
+
+  <div class="book-grid">
+    <!-- Book 1: 彩虹種子 -->
+    <div class="book-card" onclick="window.location.href='book_rainbow.html'">
+      <div class="book-cover book1-cover">
+        <div class="cover-icon">🌈</div>
+      </div>
+      <div class="book-info">
+        <h2>彩虹種子</h2>
+        <div>
+          <span class="book-tag tag-rainbow">🌱 耐心</span>
+          <span class="book-tag tag-rainbow">🤝 合作</span>
+          <span class="book-tag tag-rainbow">💚 友情</span>
+        </div>
+        <p class="book-desc">
+          小兔子波波和小松鼠朵朵在森林裡發現了一顆發光的彩虹種子。他們一起種下種子，每天澆水、守護，經歷了暴風雨的考驗，終於種出了美麗的彩虹樹！
+        </p>
+        <p class="pages-count">📄 共 19 頁</p>
+        <button class="read-btn">開始閱讀 📖</button>
+      </div>
+    </div>
+
+    <!-- Book 2: 草原小英雄 -->
+    <div class="book-card" onclick="window.location.href='book_grassland.html'">
+      <div class="book-cover book2-cover">
+        <div class="cover-icon">🐑</div>
+      </div>
+      <div class="book-info">
+        <h2>草原小英雄</h2>
+        <div>
+          <span class="book-tag tag-grassland">🦅 夢想</span>
+          <span class="book-tag tag-grassland">💪 堅持</span>
+          <span class="book-tag tag-grassland">🌅 成長</span>
+        </div>
+        <p class="book-desc">
+          小羊波波看著天空的老鷹，羨慕地想：「要是我也會飛就好了！」於是，他和好朋友小駱駝朵朵開始了瘋狂的發明飛行器之旅。第一百次實驗，終於成功！
+        </p>
+        <p class="pages-count">📄 共 18 頁</p>
+        <button class="read-btn">開始閱讀 📖</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>✨ 每一個故事都蘊含著美好的寓意 ✨</p>
+  </div>
+</div>
+
+</body>
+</html>

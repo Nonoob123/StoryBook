@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>波波和朵朵的彩虹種子</title>
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌈%3C/text%3E%3C/svg%3E">
+
+<style>
+
+
+
+
+
+
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap');
+
+
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+
+
+body{font-family:'Noto Sans TC',sans-serif;background:linear-gradient(135deg,#fce4ec 0%,#f3e5f5 50%,#e8eaf6 100%);min-height:100vh;overflow-x:hidden;transition:all 0.5s ease}
+
+
+
+body.dark-mode{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);color:#e0e0e0}
+
+
+
+body.dark-mode .book-page{background:#2d2d44}
+
+
+
+body.dark-mode .page-content{color:#e0e0e0}
+
+
+
+body.dark-mode .story-text{color:#e0e0e0}
+
+
+
+body.dark-mode .dialog-rabbit{background:linear-gradient(135deg,#1a3a4a,#0d2137);color:#88ccff;border-left-color:#4488cc}
+
+
+
+body.dark-mode .dialog-squirrel{background:linear-gradient(135deg,#3d2a1a,#2a1a0a);color:#ffaa88;border-left-color:#cc8844}
+
+
+
+body.dark-mode .narration{color:#aaa}
+
+
+
+body.dark-mode .page-navigation{background:#222233;border-top-color:#444}
+
+
+
+body.dark-mode .nav-btn{background:linear-gradient(135deg,#5566aa,#443388)}
+
+
+
+body.dark-mode .progress-bar{background:#444}
+
+
+
+body.dark-mode .page-number{background:rgba(45,45,68,0.9);color:#aaa}
+
+
+
+body.dark-mode .book-container{filter:brightness(0.95)}
+
+
+
+body.dark-mode .modal{background:rgba(0,0,0,0.95)}
+
+
+
+body.dark-mode .control-panel{background:rgba(45,45,68,0.95);border-color:#556}
+
+
+
+body.dark-mode .settings-panel{background:rgba(45,45,68,0.98);border-color:#556}
+
+
+
+body.dark-mode .settings-panel button:last-child{background:#444;color:#ccc}
+
+
+
+body.dark-mode .share-content{background:#2d2d44;color:#e0e0e0}
+
+
+
+body.dark-mode .share-content h3{color:#e0e0e0}
+
+
+
+body.dark-mode .page-jump{background:rgba(45,45,68,0.95);border-color:#556}
+
+
+
+body.dark-mode .page-jump label{color:#aaa}
+
+
+
+.book-container{max-width:900px;margin:0 auto;padding:20px;transition:filter 0.5s ease}
+
+
+
+.control-panel{position:fixed;top:15px;right:15px;z-index:1000;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.95);border:2px solid #e0d4f5;border-radius:30px;padding:5px 10px;box-shadow:0 2px 15px rgba(0,0,0,0.1);flex-wrap:wrap;justify-content:flex-end;max-width:500px}
+
+
+
+.control-btn{background:none;border:none;font-size:1.2em;cursor:pointer;padding:2px 5px;border-radius:50%;transition:all 0.3s ease}
+
+
+
+.control-btn:hover{background:rgba(102,126,234,0.15);transform:scale(1.1)}
+
+
+
+.control-btn.playing{animation:pulse 2s infinite}
+
+
+
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(102,126,234,0.4)}50%{box-shadow:0 0 0 8px rgba(102,126,234,0)}}
+
+
+
+.volume-slider{width:50px;height:3px;-webkit-appearance:none;appearance:none;background:linear-gradient(90deg,#667eea,#764ba2);border-radius:2px;outline:none;cursor:pointer}
+
+
+
+.volume-slider::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;background:#764ba2;border-radius:50%;cursor:pointer}
+
+
+
+.volume-slider::-moz-range-thumb{width:12px;height:12px;background:#764ba2;border-radius:50%;cursor:pointer;border:none}
+
+
+
+.settings-btn{background:none;border:none;font-size:1.5em;cursor:pointer;padding:2px 5px;border-radius:50%;transition:all 0.3s ease}
+
+
+
+.settings-btn:hover{background:rgba(102,126,234,0.15);transform:rotate(90deg)}
+
+
+
+.settings-panel{display:none;position:absolute;top:60px;right:0;background:rgba(255,255,255,0.98);border:2px solid #e0d4f5;border-radius:20px;padding:15px;box-shadow:0 4px 20px rgba(0,0,0,0.15);min-width:200px;z-index:1001}
+
+
+
+.settings-panel.active{display:block}
+
+
+
+.settings-panel label{display:block;padding:8px 0;cursor:pointer;font-size:0.9em}
+
+
+
+.settings-panel input[type="range"]{width:100%;margin:5px 0}
+
+
+
+.settings-panel button{width:100%;padding:8px;margin:3px 0;border:none;border-radius:15px;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.3s ease}
+
+
+
+.settings-panel button:hover{transform:scale(1.05)}
+
+
+
+.settings-panel button:first-child{background:linear-gradient(135deg,#667eea,#764ba2);color:white}
+
+
+
+.settings-panel button:last-child{background:#f0f0f0;color:#333}
+
+
+
+.page-jump{position:fixed;bottom:15px;right:15px;z-index:1000;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.95);border:2px solid #e0d4f5;border-radius:20px;padding:6px 12px;box-shadow:0 2px 15px rgba(0,0,0,0.1)}
+
+
+
+.page-jump label{font-size:0.8em;color:#666;white-space:nowrap}
+
+
+
+.page-jump input{width:35px;text-align:center;border:1px solid #ddd;border-radius:10px;padding:3px 2px;font-size:0.85em;font-family:'Noto Sans TC',sans-serif}
+
+
+
+.page-jump button{background:linear-gradient(135deg,#667eea,#764ba2);color:white;border:none;border-radius:12px;padding:3px 12px;font-size:0.8em;cursor:pointer;font-family:'Noto Sans TC',sans-serif}
+
+
+
+.title-page{text-align:center;padding:60px 20px;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(180deg,#fff9c4 0%,#ffecb3 50%,#ffe0b2 100%);border-radius:20px;margin-bottom:20px}
+
+
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+
+
+@keyframes bounceIn{0%{transform:scale(0.3);opacity:0}50%{transform:scale(1.05)}70%{transform:scale(0.9)}100%{transform:scale(1);opacity:1}}
+
+
+
+@keyframes fadeInText{from{opacity:0}to{opacity:1}}
+
+
+
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+
+
+@keyframes sparkle{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.2);opacity:0.8}}
+
+
+
+@keyframes flipLeft{0%{transform:perspective(1000px) rotateY(-90deg);opacity:0}100%{transform:perspective(1000px) rotateY(0);opacity:1}}
+
+
+
+@keyframes flipRight{0%{transform:perspective(1000px) rotateY(90deg);opacity:0}100%{transform:perspective(1000px) rotateY(0);opacity:1}}
+
+
+
+.title-page h1{font-family:'Noto Serif TC',serif;font-size:3em;color:#e65100;text-shadow:2px 2px 4px rgba(0,0,0,0.1);margin-bottom:20px;animation:bounceIn 1s ease-in}
+
+
+
+.title-page .subtitle{font-size:1.2em;color:#6d4c41;margin-bottom:40px}
+
+
+
+.title-page .rainbow-text{background:linear-gradient(90deg,#f44336,#ff9800,#ffeb3b,#4caf50,#2196f3,#3f51b5,#9c27b0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+
+
+.start-btn{background:linear-gradient(135deg,#ff6f00,#ff8f00);color:white;border:none;padding:15px 50px;font-size:1.3em;border-radius:50px;cursor:pointer;box-shadow:0 4px 15px rgba(255,111,0,0.3);transition:all 0.3s ease;font-family:'Noto Sans TC',sans-serif}
+
+
+
+.start-btn:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(255,111,0,0.4)}
+
+
+
+.continue-btn{background:linear-gradient(135deg,#667eea,#764ba2);color:white;border:none;padding:10px 30px;font-size:1em;border-radius:25px;cursor:pointer;margin-top:15px;transition:all 0.3s ease;font-family:'Noto Sans TC',sans-serif}
+
+
+
+.continue-btn:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(102,126,234,0.4)}
+
+
+
+.continue-btn:disabled{opacity:0.4;cursor:not-allowed}
+
+
+
+.book-page{display:none;background:white;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,0.1);overflow:hidden;margin-bottom:20px;animation:fadeIn 0.5s ease-in}
+
+
+
+.book-page.active{display:block}
+
+
+
+.book-page.flip-left{animation:flipLeft 0.6s ease-in-out}
+
+
+
+.book-page.flip-right{animation:flipRight 0.6s ease-in-out}
+
+
+
+.page-image-container{width:100%;position:relative;overflow:hidden;cursor:pointer}
+
+
+
+.page-image-container img{width:100%;height:auto;display:block;transition:transform 0.3s ease}
+
+
+
+.page-image-container:hover img{transform:scale(1.02)}
+
+
+
+.page-content{padding:30px}
+
+
+
+.page-number{position:absolute;top:15px;right:15px;background:rgba(255,255,255,0.9);padding:5px 15px;border-radius:20px;font-size:0.9em;color:#666;z-index:10}
+
+
+
+.story-text{font-family:'Noto Serif TC',serif;font-size:1.3em;line-height:2;color:#333;margin-bottom:30px;transition:font-size 0.3s ease}
+
+
+
+.story-text p{margin-bottom:15px;opacity:0;animation:fadeInText 0.5s ease forwards}
+
+
+
+.story-text p:nth-child(1){animation-delay:0.1s}
+
+
+
+.story-text p:nth-child(2){animation-delay:0.2s}
+
+
+
+.story-text p:nth-child(3){animation-delay:0.3s}
+
+
+
+.story-text p:nth-child(4){animation-delay:0.4s}
+
+
+
+.story-text p:nth-child(5){animation-delay:0.5s}
+
+
+
+.story-text p:nth-child(6){animation-delay:0.6s}
+
+
+
+.dialog-rabbit{background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-left:4px solid #2196f3;padding:15px 20px;margin:15px 0;border-radius:0 10px 10px 0;font-weight:700;color:#1565c0}
+
+
+
+.dialog-squirrel{background:linear-gradient(135deg,#fff3e0,#ffe0b2);border-left:4px solid #ff9800;padding:15px 20px;margin:15px 0;border-radius:0 10px 10px 0;font-weight:700;color:#e65100}
+
+
+
+.narration{font-style:italic;color:#666;padding-left:10px}
+
+
+
+.page-navigation{display:flex;align-items:center;gap:15px;padding:20px 30px;background:#fafafa;border-top:1px solid #f0f0f0}
+
+
+
+.nav-btn{background:linear-gradient(135deg,#667eea,#764ba2);color:white;border:none;padding:10px 25px;font-size:1em;border-radius:20px;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.3s ease}
+
+
+
+.nav-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 4px 15px rgba(102,126,234,0.4)}
+
+
+
+.nav-btn:disabled{opacity:0.3;cursor:not-allowed}
+
+
+
+.progress-bar{flex:1;height:6px;background:#e0e0e0;border-radius:3px;overflow:hidden}
+
+
+
+.progress-fill{height:100%;background:linear-gradient(90deg,#667eea,#764ba2);width:0%;transition:width 0.3s ease}
+
+
+
+.ending-page{display:none;text-align:center;padding:80px 20px;min-height:80vh;background:linear-gradient(180deg,#e8f5e9 0%,#c8e6c9 50%,#fff9c4 100%);border-radius:20px;margin-bottom:20px}
+
+
+
+.ending-page h2{font-family:'Noto Serif TC',serif;font-size:2.5em;color:#2e7d32;margin-bottom:20px}
+
+
+
+.ending-page p{font-size:1.2em;color:#555;margin-bottom:30px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.8}
+
+
+
+.ending-page .rainbow-text{background:linear-gradient(90deg,#f44336,#ff9800,#ffeb3b,#4caf50,#2196f3,#3f51b5,#9c27b0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700}
+
+
+
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:2000;justify-content:center;align-items:center;cursor:pointer}
+
+
+
+.modal.active{display:flex}
+
+
+
+.modal img{max-width:90%;max-height:90%;border-radius:10px;box-shadow:0 10px 40px rgba(0,0,0,0.5)}
+
+
+
+.share-dialog{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:3000;justify-content:center;align-items:center}
+
+
+
+.share-dialog.active{display:flex}
+
+
+
+.share-content{background:white;border-radius:20px;padding:30px;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,0.3);max-width:400px;width:90%}
+
+
+
+.share-content h3{margin-bottom:20px;color:#333}
+
+
+
+.share-content canvas{margin:15px 0;border-radius:10px}
+
+
+
+.share-content button{margin:5px;padding:10px 25px;border:none;border-radius:20px;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all 0.3s ease}
+
+
+
+.share-content button:first-child{background:linear-gradient(135deg,#667eea,#764ba2);color:white}
+
+
+
+.share-content button:last-child{background:#f0f0f0;color:#333}
+
+
+
+.sparkle{animation:sparkle 1s infinite}
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+<div class="book-container">
+
+
+  <div class="title-page" id="titlePage">
+
+
+    <h1>🌈 <span class="rainbow-text">波波和朵朵的彩虹種子</span> 🌈</h1>
+
+
+    <p class="subtitle">一個關於耐心、友誼和團隊合作的美好故事</p>
+
+
+    <button class="start-btn" id="startBtn">開始閱讀 ⭐</button>
+
+
+    <button class="continue-btn" id="continueBtn" disabled>繼續上次閱讀</button>
+
+
+  </div>
+
+
+  <div class="ending-page" id="endingPage">
+
+
+    <h2>🎉 <span class="rainbow-text">感謝你閱讀這個故事</span> 🎉</h2>
+
+
+    <p>就像波波和朵朵一樣，只要我們有耐心、願意付出愛心，就能創造出屬於自己的彩虹。</p>
+
+
+    <button class="start-btn" id="replayBtn">再閱一次 🙌</button>
+
+
+  </div>
+
+
+  <div id="pagesContainer"></div>
+
+
+  <div class="modal" id="imageModal"><img id="modalImage" src="" alt="放大圖片"></div>
+
+
+  </div>
+
+
+  <div class="control-panel">
+
+
+
+
+    <button onclick="toggleDarkMode()" title="暗的模式" id="darkModeBtn">🌙</button>
+
+
+  </div>
+
+
+</div>
+
+</body>
+
+<script>
+
+const scenesData = [{"image": "scene01_forest_friends.png", "text": "<p class=\"dialog-rabbit\">你好我是波波一隻喜歡挖洞的小白兔。</p>\n<p class=\"dialog-squirrel\">嗨我是朵朵一隻喜歡收集堅果的小松鼠。</p>\n<p class=\"narration\">在一片美麗的森林裡波波和朵朵成了最好的朋友他們每天一起玩樂一起探索森林裡的每個角落。</p>"}, {"image": "scene02_discovering_seed.png", "text": "<p class=\"narration\">有一天波波在森林裡發現了一顆發光的種子。</p>\n<p class=\"dialog-rabbit\">看這顆種子會发光耶它一定是什麼神奇的東西。</p>\n<p class=\"dialog-squirrel\">哇真的好好看我從來沒見過這樣的種子。</p>"}, {"image": "scene03_rainbow_seed_legend.png", "text": "<p class=\"dialog-rabbit\">我聽爺爺說過彩虹種子是一種神奇的種子。</p>\n<p class=\"dialog-squirrel\">真的嗎？它會長成什麼樣子呢？</p>\n<p class=\"narration\">兔子的爺爺曾經告訴他彩虹種子非常罕見只有最有耐心的人才能讓它長大。</p>"}, {"image": "scene04_planting_seed.png", "text": "<p class=\"narration\">波波和朵朵決定一起種下這顆神奇的種子。</p>\n<p class=\"dialog-rabbit\">我們要把最好的地方留給它。</p>\n<p class=\"dialog-squirrel\">對這裡陽光充足土壤也很柔軟。</p>\n<p class=\"narration\">他們一起挖了一個小坑把種子輕輕放了進去蓋上土澆了水。</p>"}, {"image": "scene05_early_check.png", "text": "<p class=\"narration\">第二天一早波波就迫不及待地跑去看種子。</p>\n<p class=\"dialog-rabbit\">怎麼還沒有長出來呢？</p>\n<p class=\"narration\">可是土壤裡面什麼都沒有波波急得像熱鍋上的螞蟻。</p>"}, {"image": "scene06_impatient_wait.png", "text": "<p class=\"dialog-rabbit\">為什麼種子還是不長出來啊我都等了整整一晚。</p>\n<p class=\"dialog-squirrel\">別急別急植物生長需要時間的。</p>\n<p class=\"narration\">朵朵努力安慰著焦急的波波可是波波還是每天跑去看好幾回。</p>"}, {"image": "scene07_grandpa_turtle.png", "text": "<p class=\"narration\">就在這個時候一隻戴著老花眼鏡的老龜慢悠悠地走來了。</p>\n<p class=\"dialog-turtle\" style=\"background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border-left:4px solid #4caf50;padding:15px 20px;margin:15px 0;border-radius:0 10px 10px 0;font-weight:700;color:#2e7d32\">孩子別急種子正在泥土裡努力長大呢你需要的是耐心。</p>\n<p class=\"narration\">龜爺爺笑咪咪地說著。</p>"}, {"image": "scene08_patience_lesson.png", "text": "<p class=\"dialog-rabbit\">耐心？可是我真的很想趕快看到它長大。</p>\n<p class=\"dialog-turtle\" style=\"background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border-left:4px solid #4caf50;padding:15px 20px;margin:15px 0;border-radius:0 10px 10px 0;font-weight:700;color:#2e7d32\">每顆種子都有自己的節奏你不能太快也不能太慢。</p>\n<p class=\"dialog-squirrel\">龜爺爺說得對我們每天都要來澆水但不能急著拔它出來。</p>"}, {"image": "scene09_caring_daily.png", "text": "<p class=\"narration\">波波和朵朵每天都來給種子澆水鬆土。</p>\n<p class=\"dialog-rabbit\">我今天會認真等不催它了。</p>\n<p class=\"dialog-squirrel\">我們一起照顧它它一定能快快長大。</p>\n<p class=\"narration\">他們每天輪流澆水松土非常用心。</p>"}, {"image": "scene10_big_wind.png", "text": "<p class=\"narration\">有一天突然刮起了一陣大風天空也暗了下來。</p>\n<p class=\"dialog-rabbit\">啊大風要把我們的種子吹走了。</p>\n<p class=\"dialog-squirrel\">我們快去保護種子。</p>\n<p class=\"narration\">波波和朵朵拼命跑向種子的地方。</p>"}, {"image": "scene11_leaves_protection.png", "text": "<p class=\"narration\">他們看到一些大樹葉擋在種子旁邊形成了一個天然的屏障。</p>\n<p class=\"dialog-squirrel\">太好了大樹葉保護了種子。</p>\n<p class=\"dialog-rabbit\">我們也要幫忙保護它。</p>\n<p class=\"narration\">波波和朵朵用身體擋住了強風守護著小小的種子。</p>"}, {"image": "scene12_carrying_water.png", "text": "<p class=\"narration\">大雨過後土地變得更濕潤了。</p>\n<p class=\"dialog-rabbit\">下過雨之後土壤一定很軟。</p>\n<p class=\"dialog-squirrel\">我們來幫它鬆鬆土吧。</p>\n<p class=\"narration\">他們用小手輕輕鬆土發現土壤裡冒出了小小綠綠的芽。</p>"}, {"image": "scene13_sprout_emerges.png", "text": "<p class=\"narration\">第二天早晨太陽出來的时候一個嫩綠色的小芽從土壤裡冒了出來。</p>\n<p class=\"dialog-rabbit\">哇小芽長出來了。</p>\n<p class=\"dialog-squirrel\">它長得好快啊看起來很健康。</p>\n<p class=\"narration\">波波和朵朵非常高興他們一起歡呼跳了起來。</p>"}, {"image": "scene14_tree_growing.png", "text": "<p class=\"narration\">日子一天天過去小樹苗慢慢長高了。</p>\n<p class=\"dialog-rabbit\">它長得好快啊都快到我頭上了。</p>\n<p class=\"dialog-squirrel\">我們每天澆水它一定很开心。</p>\n<p class=\"narration\">樹苗長出了一片片綠葉變得又高又壯。</p>"}, {"image": "scene15_rainbow_fruits.png", "text": "<p class=\"narration\">又過了一段時間樹上開出了美麗的花朵花朵變成了彩虹色的果實。</p>\n<p class=\"dialog-rabbit\">看那果實有紅色橙色黃色綠色藍色像彩虹一樣。</p>\n<p class=\"dialog-squirrel\">真的是彩虹果實太漂亮了。</p>\n<p class=\"narration\">整個森林都被彩虹樹的光芒照亮了。</p>"}, {"image": "scene16_visitors_arrive.png", "text": "<p class=\"narration\">所有森林的朋友們都聽說了這棵神奇的彩虹樹。</p>\n<p class=\"dialog-bird\" style=\"background:linear-gradient(135deg,#fffde7,#fff9c4);border-left:4px solid #fbc02d;padding:15px 20px;margin:15px 0;border-radius:0 10px 10px 0;font-weight:700;color:#f57f17\">天啊這是什麼樹？太美了。</p>\n<p class=\"dialog-squirrel\">這是我們一起種的彩虹樹。</p>\n<p class=\"narration\">大家圍著彩虹樹讚嘆不已。</p>"}, {"image": "scene17_arguing_credit.png", "text": "<p class=\"dialog-rabbit\">這棵樹是我種的沒有我你就看不到。</p>\n<p class=\"dialog-squirrel\">不對是我每天來澆水才長得這麼好。</p>\n<p class=\"narration\">波波和朵朵為了誰的功勞大而爭論了起來森林裡安靜了下來。</p>"}, {"image": "scene18_turtle_wisdom.png", "text": "<p class=\"dialog-turtle\" style=\"background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border-left:4px solid #4caf50;padding:15px 20px;margin:15px 0;border-radius:0 10px 10px 0;font-weight:700;color:#2e7d32\">這棵樹不是波波種的不是朵朵澆的水是大家共同努力的結果。</p>\n<p class=\"narration\">龜爺爺緩緩說著大家聽了都低下了頭。</p>\n<p class=\"dialog-rabbit\">對啊我們一起照顧它才能長成這樣。</p>\n<p class=\"dialog-squirrel\">謝謝龜爺爺我們一起種的彩虹樹。</p>"}, {"image": "scene19_together_rainbow.png", "text": "<p class=\"narration\">從那天起波波和朵朵和森林裡的所有朋友一起守護彩虹樹。</p>\n<p class=\"dialog-rabbit\">我們每天來照顧它讓它一直健康長大。</p>\n<p class=\"dialog-squirrel\">大家一起努力讓彩虹樹永遠美麗。</p>\n<p class=\"narration\">森林裡充滿了歡笑聲彩虹樹的果實分享給每一個朋友。</p>"},{"num":20,"image":"scene19_together_rainbow.png","text":"<p class=\"narration\">故事的寓意：</p><p class=\"narration\">耐心和堅持會讓美好的事情發生。</p><p class=\"narration\">團隊合作和友誼讓一切成為可能。</p><p class=\"narration\">🌟</p>"}];
+
+var pages = scenesData;
+var currentPage=-1,saveTimeout=null,audioCtx=null,musicOscillators=[],musicLoopId=null,isMusicPlaying=false,currentVolume=0.3;
+
+function goPage(pi){
+  playSound("page");
+  if(pi>=0)document.getElementById("titlePage").style.display="none";
+  var ap=document.querySelectorAll(".book-page");
+  for(var i=0;i<ap.length;i++){ap[i].classList.remove("active");ap[i].classList.remove("flip-left");ap[i].classList.remove("flip-right")}
+  if(pi>=0&&pi<pages.length){
+    var page=document.getElementById("page-"+pi);
+    page.classList.add("active");
+    page.classList.add(pi>currentPage?"flip-right":"flip-left");
+    currentPage=pi;
+    localStorage.setItem("rainbowSeedPage",pi);
+    localStorage.setItem("rainbowSeedLastPage",pi);
+    updProg();
+    window.scrollTo({top:0,behavior:"smooth"})
+  }
+}
+
+function prevP(){if(currentPage>0)goPage(currentPage-1)}
+
+function nextP(){
+  if(currentPage<pages.length-1)goPage(currentPage+1);
+  else{
+    var ap=document.querySelectorAll(".book-page");
+    for(var i=0;i<ap.length;i++)ap[i].classList.remove("active");
+    document.getElementById("endingPage").style.display="block";
+    window.scrollTo({top:0,behavior:"smooth"})
+  }
+}
+
+function openM(el){var img=el.querySelector("img");document.getElementById("modalImage").src=img.src;document.getElementById("imageModal").classList.add("active")}
+function closeM(){document.getElementById("imageModal").classList.remove("active")}
+
+function updProg(){
+  var p=document.querySelector(".progress-fill");
+  if(p&&currentPage>=0)p.style.width=((currentPage+1)/pages.length*100)+"%";
+  var nb=document.getElementById("pageNum");
+  if(nb)nb.textContent=(currentPage+1)+"/"+pages.length;
+  var cb=document.getElementById("continueBtn");
+  if(cb){var sp=parseInt(localStorage.getItem("rainbowSeedLastPage"))||0;if(sp>=0&&sp<pages.length){cb.disabled=false;cb.textContent="\u7e8c\u7e8c\u4e0a\u6b21\u95b1\u8b80 \u7b2c"+(sp+1)+"\u9801"}else{cb.disabled=true;cb.textContent="\u7e8c\u7e8c\u4e0a\u6b21\u95b1\u8b80"}}
+}
+
+function renderP(){
+  var c=document.getElementById("pagesContainer");if(!c)return;
+  for(var i=0;i<pages.length;i++){
+    var p=pages[i],d=document.createElement("div");
+    d.className="book-page";d.id="page-"+i;
+    var imgDiv="<div class=\"page-image-container\" onclick=\"openM(this);playSound(\x27sparkle\x27)\">";
+    imgDiv+="<span class=\"page-number\">第 "+(i+1)+" 頁</span>";
+    imgDiv+="<img src=\""+p.image+"\" alt=\"第 "+(i+1)+" 張圖片"+"\" loading=\"lazy\">";
+    imgDiv+="</div>";
+    var storyHtml="<div class=\"page-content\"><div class=\"story-text\">"+p.text+"</div></div>";
+    var navBtn1="<button class=\"nav-btn\" onclick=\"prevP()\""+(i===0?" disabled":"")+">上一頁</button>";
+    var progBar="<div class=\"progress-bar\"><div class=\"progress-fill\"></div></div>";
+    var pageNum="<span class=\"page-number\" id=\"pageNum\">"+(i+1)+"/"+pages.length+"</span>";
+    var navBtn2="<button class=\"nav-btn\" onclick=\"nextP()\""+(i===pages.length-1?" disabled":"")+">下一頁</button>";
+    d.innerHTML=imgDiv+storyHtml+"<div class=\"page-navigation\">"+navBtn1+progBar+pageNum+navBtn2+"</div>";
+    c.appendChild(d);
+  }
+}
+
+function toggleDarkMode(){document.body.classList.toggle("dark-mode")}
+
+var touchStartX=0;
+document.addEventListener("touchstart",function(e){touchStartX=e.changedTouches[0].screenX},false);
+document.addEventListener("touchend",function(e){var diff=e.changedTouches[0].screenX-touchStartX;if(diff<-50)nextP();if(diff>50)prevP()},false);
+
+document.addEventListener("keydown",function(e){if(e.key==="ArrowRight"||e.key===" ")nextP();if(e.key==="ArrowLeft")prevP()});
+
+function initAC(){if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)()}
+
+function createGentleMelody(){if(!audioCtx)initAC();if(musicLoopId){clearTimeout(musicLoopId);musicLoopId=null;}musicOscillators.forEach(function(o){try{o.stop()}catch(e){}try{o.disconnect()}catch(e2){}});musicOscillators=[];var master=audioCtx.createGain();master.gain.value=currentVolume*0.5;master.connect(audioCtx.destination);var notes=[261.63,293.66,329.63,392.00,440.00,523.25,440.00,392.00,329.63,293.66,261.63,329.63,392.00,440.00,523.25,440.00,392.00,329.63,293.66,261.63,293.66,329.63,392.00,440.00];var dur=0.9;var total=notes.length;var loopTime=total*dur*1000;var pad1=audioCtx.createOscillator();var pad2=audioCtx.createOscillator();var padGain=audioCtx.createGain();pad1.type='sine';pad1.frequency.value=130.81;pad2.type='sine';pad2.frequency.value=196.00;padGain.gain.value=0.04;var filter=audioCtx.createBiquadFilter();filter.type='lowpass';filter.frequency.value=300;pad1.connect(filter);pad2.connect(filter);filter.connect(padGain);padGain.connect(master);pad1.start();pad2.start();musicOscillators.push(pad1,pad2);function playLoop(){if(!isMusicPlaying)return;var now=audioCtx.currentTime;for(var i=0;i<total;i++){var osc=audioCtx.createOscillator();var g=audioCtx.createGain();osc.type='triangle';osc.frequency.value=notes[i];var st=now+i*dur;var en=st+dur*0.8;g.gain.setValueAtTime(0,st);g.gain.linearRampToValueAtTime(0.12,st+0.08);g.gain.exponentialRampToValueAtTime(0.06,en-0.05);g.gain.linearRampToValueAtTime(0.001,en);osc.connect(g);g.connect(master);osc.start(st);osc.stop(en+0.01);musicOscillators.push(osc)}musicLoopId=setTimeout(playLoop,loopTime-100)}playLoop()}
+
+function playLoop(){if(!isMusicPlaying)return;var now=audioCtx.currentTime;for(var i=0;i<total;i++){var osc=audioCtx.createOscillator();var g=audioCtx.createGain();osc.type='triangle';osc.frequency.value=notes[i];var st=now+i*dur;var en=st+dur*0.8;g.gain.setValueAtTime(0,st);g.gain.linearRampToValueAtTime(0.12,st+0.08);g.gain.exponentialRampToValueAtTime(0.06,en-0.05);g.gain.linearRampToValueAtTime(0.001,en);osc.connect(g);g.connect(master);osc.start(st);osc.stop(en+0.01);musicOscillators.push(osc)}musicLoopId=setTimeout(playLoop,loopTime-100)}
+
+function startBM(){if(isMusicPlaying)return;isMusicPlaying=true;createGentleMelody();document.getElementById('musicToggle').classList.add('playing');document.getElementById('musicToggle').textContent='馃攰'}
+
+function stopBM(){isMusicPlaying=false;if(musicLoopId){clearTimeout(musicLoopId);musicLoopId=null;}musicOscillators.forEach(function(o){try{o.stop()}catch(e){}try{o.disconnect()}catch(e2){}});musicOscillators=[];document.getElementById('musicToggle').classList.remove('playing');document.getElementById('musicToggle').textContent='馃幍'}
+
+function setVol(v){currentVolume=v/100;document.getElementById('volumeLabel').textContent=v+'%';if(isMusicPlaying){stopBM();createGentleMelody()}}
+
+function playSound(type){if(!audioCtx)initAC();var osc=audioCtx.createOscillator();var gain=audioCtx.createGain();osc.type='sine';if(type==='click'){osc.frequency.value=800;gain.gain.setValueAtTime(0.1,audioCtx.currentTime);gain.gain.exponentialRampToValueAtTime(0.01,audioCtx.currentTime+0.1)}else if(type==='page'){osc.frequency.value=600;gain.gain.setValueAtTime(0.08,audioCtx.currentTime);gain.gain.exponentialRampToValueAtTime(0.01,audioCtx.currentTime+0.15)}else if(type==='sparkle'){osc.frequency.value=1200;gain.gain.setValueAtTime(0.05,audioCtx.currentTime);gain.gain.exponentialRampToValueAtTime(0.01,audioCtx.currentTime+0.2)}osc.connect(gain);gain.connect(audioCtx.destination);osc.start(audioCtx.currentTime);osc.stop(audioCtx.currentTime+(type==='sparkle'?0.2:0.15))}
+
+function toggleSettingsPanel(){document.getElementById('settingsPanel').classList.toggle('active')}
+
+function resetSettings(){document.getElementById('darkModeToggle').checked=false;document.getElementById('fontSizeSlider').value=20;document.body.classList.remove('dark-mode');document.getElementById('fontSizeSlider').dispatchEvent(new Event('input'));toggleSettingsPanel()}
+
+document.getElementById("startBtn").addEventListener("click",function(){goPage(0)});
+document.getElementById("replayBtn").addEventListener("click",function(){document.getElementById("endingPage").style.display="none";document.getElementById("titlePage").style.display="flex"});
+document.getElementById("continueBtn").addEventListener("click",function(){var sp=parseInt(localStorage.getItem("rainbowSeedLastPage"))||0;goPage(sp)});
+document.getElementById("imageModal").addEventListener("click",closeM);
+document.addEventListener("DOMContentLoaded",function(){
+  renderP();
+  var lp=parseInt(localStorage.getItem("rainbowSeedLastPage"))||0;
+  if(lp>0&&lp<pages.length){
+    currentPage=lp;
+    var rp=document.getElementById("page-"+lp);
+    if(rp)rp.classList.add("active");
+    updProg();
+  }
+});
+
+
+</script>
+
+</html>
