@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    
+      <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#0F172A" />
+        <stop offset="50%" stop-color="#1E293B" />
+        <stop offset="100%" stop-color="#334155" />
+      </linearGradient>
+    
+    <linearGradient id="ground" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1C4B27" />
+      <stop offset="100%" stop-color="#246332" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Sky Background -->
+  <rect width="800" height="600" fill="url(#sky)" />
+
+  <!-- Sun or Moon -->
+  
+    <circle cx="700" cy="110" r="45" fill="#FEF08A" opacity="0.9" />
+    <circle cx="680" cy="110" r="45" fill="#1E293B" />
+    <!-- Stars -->
+    <circle cx="150" cy="80" r="2" fill="#FFF" />
+    <circle cx="340" cy="120" r="1.5" fill="#FFF" />
+    <circle cx="500" cy="70" r="2.5" fill="#FFF" />
+    <circle cx="230" cy="160" r="1" fill="#FFF" />
+    <circle cx="80" cy="200" r="2" fill="#FFF" />
+  
+
+  <!-- Distant Mountains / Hills -->
+  <path d="M -50,420 Q 150,320 350,380 T 750,340 T 900,400 L 900,600 L -50,600 Z" fill="#14431F" opacity="0.25" />
+  <path d="M -50,450 Q 200,380 450,450 T 850,420 L 850,600 L -50,600 Z" fill="#14431F" opacity="0.4" />
+
+  <!-- Base Ground -->
+  <path d="M -50,460 C 200,430 600,430 850,460 L 850,640 L -50,640 Z" fill="url(#ground)" />
+
+  <!-- Forest Trees (Left side) -->
+  <g transform="translate(100, 360)">
+    <rect x="-8" y="40" width="16" height="70" fill="#654321" />
+    <polygon points="0,0 -40,50 40,50" fill="#14431F" />
+    <polygon points="0,-25 -30,25 30,25" fill="#14431F" />
+  </g>
+  <g transform="translate(680, 350)">
+    <rect x="-8" y="40" width="16" height="80" fill="#543210" />
+    <polygon points="0,-10 -35,45 35,45" fill="#14431F" />
+    <polygon points="0,-35 -25,20 25,20" fill="#14431F" />
+  </g>
+
+  <!-- Illustration Main Frame Card Panel inside SVG for layout depth -->
+  <g transform="translate(40, 40)" opacity="0.05">
+    <rect width="720" height="520" rx="24" fill="none" stroke="#6B5EDB" stroke-width="4" />
+  </g>
+
+  <!-- Title Badge Top Left -->
+  <g transform="translate(50, 45)">
+    <rect width="180" height="32" rx="16" fill="white" opacity="0.9" />
+    <text x="90" y="21" font-family="system-ui, sans-serif" font-size="12" font-weighted="bold" fill="#4B5563" text-anchor="middle">
+      📖 彩虹種子的故事
+    </text>
+  </g>
+
+  <!-- Scene Custom SVG Elements -->
+  
+       <!-- Lightning Bolt -->
+       <polygon points="500,40 460,180 520,160 480,300" fill="#F1C40F" />
+    
+
+  <!-- Character / Detail Emojis Styled Centered -->
+  
+      <text x="360" y="450" font-size="120" text-anchor="middle">🐰</text>
+      <text x="440" y="450" font-size="115" text-anchor="middle">🐿️</text>
+      <!-- Wind / Scary mood -->
+      <text x="200" y="220" font-size="120" opacity="0.6">💨</text>
+      <text x="560" y="250" font-size="100" opacity="0.6">💨</text>
+      <text x="300" y="340" font-size="55">😰</text>
+    
+
+</svg>
